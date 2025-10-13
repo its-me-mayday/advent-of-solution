@@ -1,4 +1,4 @@
-import { readText } from "../_shared/readFile.js"
+import { readText } from "./utils.js"
 import { getNumberHappyHouses, getNumberHappyHousesWithRoboSanta } from "./algorithm.js"
 
 let sizeInput1 = await readText("inputs/part1.txt");

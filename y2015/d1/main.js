@@ -1,4 +1,4 @@
-import { readText } from "../_shared/readFile.js"
+import { readText } from "./utils.js"
 
 const INSTRUCTIONS = { '(': 1, ')': -1 };
 const SOURCE_FLOOR = 0;
