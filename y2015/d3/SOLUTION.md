@@ -1,0 +1,1 @@
+## How many houses receive at least one present?
