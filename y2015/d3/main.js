@@ -12,5 +12,5 @@ console.log("===== PART ONE - TEST INPUTS ====");
 console.log(`Santa, houses that received at least one present are: ${getNumberHappyHouses(testInput1)}`);
 console.log(`Santa, houses that received at least one present are: ${getNumberHappyHouses(testInput2)}`);
 console.log(`Santa, houses that received at least one present are: ${getNumberHappyHouses(testInput3)}`);
-//console.log("===== PART ONE - TEST TASK INPUT 1 (inputs/part1.txt) ====");
-//console.log(`Santa, houses that received at least one present are: ${getNumberHappyHouses(sizeInput1)}`);
+console.log("===== PART ONE - TEST TASK INPUT 1 (inputs/part1.txt) ====");
+console.log(`Santa, houses that received at least one present are: ${getNumberHappyHouses(sizeInput1)}`);
