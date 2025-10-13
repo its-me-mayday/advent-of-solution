@@ -5,6 +5,7 @@ import java.util.Set;
 
 class Main{
     private static final int MIN_VOWELS = 3;
+    private static final String VOWELS = "aeiouAEIOU";
     private static final Set<String> proibitedStrings = Set.of("ab", "cd", "pq", "xy");
     
     public static void main(String[]args){
@@ -40,20 +41,14 @@ class Main{
         
         for(int i=0; i<strLenght;i++) {
             char ch = str.charAt(i);
-            if(isVowel(ch)) countVowels += 1;
+            if (VOWELS.indexOf(ch) >= 0 && ++countVowels >= MIN_VOWELS) {
+            return true; 
+        }
         }
 
         return countVowels >= MIN_VOWELS;
     }
-    
-    private static boolean isVowel(final char ch) {
-        return ch == 'a' ||
-            ch == 'e' ||
-            ch == 'i' ||
-            ch == 'o' ||
-            ch == 'u';
-    }
-    
+     
     private static final boolean checkTwiceLetterInARow(final String str) {
         return true;
     }
