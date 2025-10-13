@@ -10,9 +10,9 @@ Personal (`its-me-mayday`) solutions to advent-of-code challenge.
   - [x] day2
     - [x] part1 (javascript)
     - [x] part2 (javascript)
-  - [ ] day3
-    - [ ] part1 (javascript) [WIP]
-    - [ ] part2 (<choose_language>)
+  - [x] day3
+    - [x] part1 (javascript)
+    - [x] part2 (javascript)
   - [ ] day4
     - [ ] part1 (<choose_language>)
     - [ ] part2 (<choose_language>)
