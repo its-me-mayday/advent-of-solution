@@ -84,10 +84,88 @@ Personal (`its-me-mayday`) solutions to advent-of-code challenge.
 - [ ] 2018
 - [ ] 2019
 - [ ] 2020
+  - [x] day1
+    - [x] part1 (ruby)
+    - [x] part2 (ruby)
 - [ ] 2021
 - [ ] 2022
 - [ ] 2023
 - [ ] 2024
+  - [x] day1
+    - [x] part1 (python)
+    - [x] part2 (python)
+  - [x] day2
+    - [x] part1 (python)
+    - [x] part2 (python)
+  - [x] day3
+    - [x] part1 (ruby)
+    - [x] part2 (ruby)
+  - [ ] day4
+    - [ ] part1 (...)
+    - [ ] part2 (...)
+  - [ ] day5
+    - [ ] part1 (<choose_language>)
+    - [ ] part2 (<choose_language>)
+  - [ ] day6
+    - [ ] part1 (<choose_language>)
+    - [ ] part2 (<choose_language>)
+  - [ ] day7
+    - [ ] part1 (<choose_language>)
+    - [ ] part2 (<choose_language>)
+  - [ ] day8
+    - [ ] part1 (<choose_language>)
+    - [ ] part2 (<choose_language>)
+  - [ ] day9
+    - [ ] part1 (<choose_language>)
+    - [ ] part2 (<choose_language>)
+  - [ ] day10
+    - [ ] part1 (<choose_language>)
+    - [ ] part2 (<choose_language>)
+  - [ ] day11
+    - [ ] part1 (<choose_language>)
+    - [ ] part2 (<choose_language>)
+  - [ ] day12
+    - [ ] part1 (<choose_language>)
+    - [ ] part2 (<choose_language>)
+  - [ ] day13
+    - [ ] part1 (<choose_language>)
+    - [ ] part2 (<choose_language>)
+  - [ ] day14
+    - [ ] part1 (<choose_language>)
+    - [ ] part2 (<choose_language>)
+  - [ ] day15
+    - [ ] part1 (<choose_language>)
+    - [ ] part2 (<choose_language>)
+  - [ ] day16
+    - [ ] part1 (<choose_language>)
+    - [ ] part2 (<choose_language>)
+  - [ ] day17
+    - [ ] part1 (<choose_language>)
+    - [ ] part2 (<choose_language>)
+  - [ ] day18
+    - [ ] part1 (<choose_language>)
+    - [ ] part2 (<choose_language>)
+  - [ ] day19
+    - [ ] part1 (<choose_language>)
+    - [ ] part2 (<choose_language>)
+  - [ ] day20
+    - [ ] part1 (<choose_language>)
+    - [ ] part2 (<choose_language>)
+  - [ ] day21
+    - [ ] part1 (<choose_language>)
+    - [ ] part2 (<choose_language>)
+  - [ ] day22
+    - [ ] part1 (<choose_language>)
+    - [ ] part2 (<choose_language>)
+  - [ ] day23
+    - [ ] part1 (<choose_language>)
+    - [ ] part2 (<choose_language>)
+  - [ ] day24
+    - [ ] part1 (<choose_language>)
+    - [ ] part2 (<choose_language>)
+  - [ ] day25
+    - [ ] part1 (<choose_language>)
+    - [ ] part2 (<choose_language>)
 
 ## Author
 - Luca Maggio (`its-me-mayday`); lucamaggio1992@gmail.com.
