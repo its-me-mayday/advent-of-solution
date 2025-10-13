@@ -5,19 +5,19 @@ Personal (`its-me-mayday`) solutions to advent-of-code challenge.
 ## Years
 - [ ] 2015
   - [x] day1
-    - [x] part1 (javascript)
-    - [x] part2 (javascript)
+    - [x] part1 (js)
+    - [x] part2 (js)
   - [x] day2
-    - [x] part1 (javascript)
-    - [x] part2 (javascript)
+    - [x] part1 (js)
+    - [x] part2 (js)
   - [x] day3
-    - [x] part1 (javascript)
-    - [x] part2 (javascript)
+    - [x] part1 (js)
+    - [x] part2 (js)
   - [x] day4
-    - [x] part1 (javascript)
-    - [x] part2 (javascript)
+    - [x] part1 (js)
+    - [x] part2 (js)
   - [ ] day5
-    - [ ] part1 (<choose_language>)
+    - [x] part1 (java)
     - [ ] part2 (<choose_language>)
   - [ ] day6
     - [ ] part1 (<choose_language>)
