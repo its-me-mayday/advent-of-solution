@@ -11,7 +11,7 @@ Personal (`its-me-mayday`) solutions to advent-of-code challenge.
     - [x] part1 (javascript)
     - [ ] part2 (javascript)
   - [ ] day3
-    - [ ] part1 (<choose_language>)
+    - [ ] part1 (javascript) [WIP]
     - [ ] part2 (<choose_language>)
   - [ ] day4
     - [ ] part1 (<choose_language>)
