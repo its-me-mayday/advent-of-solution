@@ -1,13 +1,21 @@
 package d5;
 
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
-class Main{
+public class Main{
     private static final int MIN_VOWELS = 3;
     private static final String VOWELS = "aeiouAEIOU";
     private static final Set<String> proibitedStrings = Set.of("ab", "cd", "pq", "xy");
     
-    public static void main(String[]args){
+    public static void main(String[]args) throws IOException{
         System.out.println("==== Doesn't He Have Intern-Elves For This? =====");
         
         final String inputTest1 = "ugknbfddgicrmopn";
@@ -16,19 +24,27 @@ class Main{
         final String inputTest4 = "haegwjzuvuyypxyu";
         final String inputTest5 = "dvszwmarrgswjxmb";
         
+        final String inputPartOnePath = "./inputs/part1.txt";
+        
         System.out.println("is Nice? " + isNiceString(inputTest1));
         System.out.println("is Nice? " + isNiceString(inputTest2));
         System.out.println("is Nice? " + isNiceString(inputTest3));
         System.out.println("is Nice? " + isNiceString(inputTest4));
         System.out.println("is Nice? " + isNiceString(inputTest5));
         
-        final String inputPartOnePath = "./inputs/part1.txt";
-        
-        System.out.println("How many nice strings? " + countNiceStrings(inputPartOnePath));
+        final List<String> strings = readLines(Paths.get(inputPartOnePath));
+        System.out.println("How many nice strings? " + countNiceStrings(strings));
     }
     
-    private static final int countNiceStrings(final String str){
-       return 0;
+    private static final int countNiceStrings(final List<String> strings){
+        final int listSize = strings.size();
+        int countNiceStrings = 0;
+
+        for(int i=0; i< listSize; i++) {
+            final String str = strings.get(i);
+            if(isNiceString(str)) countNiceStrings++; 
+        }
+        return countNiceStrings;
     }
     
     private static final boolean isNiceString(final String str) {
@@ -63,5 +79,11 @@ class Main{
             if(chPreavious == chCurrent) return true; 
         }
         return false;
+    }
+    
+    private static List<String> readLines(Path path) throws IOException {
+        try (Stream<String> lines = Files.lines(path, StandardCharsets.UTF_8)) {
+            return lines.collect(Collectors.toList());
+        }
     }
 }
