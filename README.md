@@ -10,6 +10,75 @@ Personal (`its-me-mayday`) solutions to advent-of-code challenge.
   - [ ] day2
     - [x] part1 (javascript)
     - [ ] part2 (javascript)
+  - [ ] day3
+    - [ ] part1 (<choose_language>)
+    - [ ] part2 (<choose_language>)
+  - [ ] day4
+    - [ ] part1 (<choose_language>)
+    - [ ] part2 (<choose_language>)
+  - [ ] day5
+    - [ ] part1 (<choose_language>)
+    - [ ] part2 (<choose_language>)
+  - [ ] day6
+    - [ ] part1 (<choose_language>)
+    - [ ] part2 (<choose_language>)
+  - [ ] day7
+    - [ ] part1 (<choose_language>)
+    - [ ] part2 (<choose_language>)
+  - [ ] day8
+    - [ ] part1 (<choose_language>)
+    - [ ] part2 (<choose_language>)
+  - [ ] day9
+    - [ ] part1 (<choose_language>)
+    - [ ] part2 (<choose_language>)
+  - [ ] day10
+    - [ ] part1 (<choose_language>)
+    - [ ] part2 (<choose_language>)
+  - [ ] day11
+    - [ ] part1 (<choose_language>)
+    - [ ] part2 (<choose_language>)
+  - [ ] day12
+    - [ ] part1 (<choose_language>)
+    - [ ] part2 (<choose_language>)
+  - [ ] day13
+    - [ ] part1 (<choose_language>)
+    - [ ] part2 (<choose_language>)
+  - [ ] day14
+    - [ ] part1 (<choose_language>)
+    - [ ] part2 (<choose_language>)
+  - [ ] day15
+    - [ ] part1 (<choose_language>)
+    - [ ] part2 (<choose_language>)
+  - [ ] day16
+    - [ ] part1 (<choose_language>)
+    - [ ] part2 (<choose_language>)
+  - [ ] day17
+    - [ ] part1 (<choose_language>)
+    - [ ] part2 (<choose_language>)
+  - [ ] day18
+    - [ ] part1 (<choose_language>)
+    - [ ] part2 (<choose_language>)
+  - [ ] day19
+    - [ ] part1 (<choose_language>)
+    - [ ] part2 (<choose_language>)
+  - [ ] day20
+    - [ ] part1 (<choose_language>)
+    - [ ] part2 (<choose_language>)
+  - [ ] day21
+    - [ ] part1 (<choose_language>)
+    - [ ] part2 (<choose_language>)
+  - [ ] day22
+    - [ ] part1 (<choose_language>)
+    - [ ] part2 (<choose_language>)
+  - [ ] day23
+    - [ ] part1 (<choose_language>)
+    - [ ] part2 (<choose_language>)
+  - [ ] day24
+    - [ ] part1 (<choose_language>)
+    - [ ] part2 (<choose_language>)
+  - [ ] day25
+    - [ ] part1 (<choose_language>)
+    - [ ] part2 (<choose_language>)
 - [ ] 2016
 - [ ] 2017
 - [ ] 2018
