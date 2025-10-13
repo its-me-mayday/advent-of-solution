@@ -1,4 +1,4 @@
-import { manageMultipleLines } from "../_shared/readFile.js"
+import { manageMultipleLines } from "./utils.js"
 
 function parseSize(str) {
     const size = str.split('x');
