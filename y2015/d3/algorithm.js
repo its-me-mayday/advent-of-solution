@@ -1,4 +1,4 @@
-
+const STARTING_POINT = (0,0);
 const MOVEMENTS = { 
     '^': (0,1), 
     'v': (0,-1),
@@ -7,7 +7,9 @@ const MOVEMENTS = {
 };
 
 export function getNumberHappyHouses(path) {
-    let happyHouses = 1;
+    let happyHousesCoordinates = new Set();
+    happyHousesCoordinates.add(STARTING_POINT)
+    
 
-    return happyHouses;
+    return happyHousesCoordinates.size;
 }
