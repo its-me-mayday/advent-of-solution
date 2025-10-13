@@ -1,7 +1,11 @@
 package d5;
 
+import java.util.HashSet;
+import java.util.Set;
+
 class Main{
     private static final int MIN_VOWELS = 3;
+    private static final Set<String> proibitedStrings = Set.of("ab", "cd", "pq", "xy");
     
     public static void main(String[]args){
         System.out.println("==== Doesn't He Have Intern-Elves For This? =====");
@@ -20,13 +24,14 @@ class Main{
     }
     
     private static final boolean isNiceString(final String str) {
-        return checkProibitedLetters(str) &&
+        return checkProibitedStrings(str) &&
             checkVowels(str) &&
             checkTwiceLetterInARow(str);
     }
     
-    private static final boolean checkProibitedLetters(final String str) {
-        return true;
+    private static final boolean checkProibitedStrings(final String str) {
+        if(str == null) return false;
+        return proibitedStrings.stream().noneMatch(str::contains);
     }
     
     private static final boolean checkVowels(final String str) {
