@@ -1,0 +1,1 @@
+## Find MD5 hashes which, in hexadecimal, start with at least five zeroes.
