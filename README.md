@@ -4,8 +4,8 @@ Personal (`its-me-mayday`) solutions to advent-of-code challenge.
 
 ## Years
 - [ ] 2015
-  - [x] day1;part1
-  - [ ] day1;part2
+  - [x] day1;part1 (javascript)
+  - [x] day1;part2 (javascript)
 - [ ] 2016
 - [ ] 2017
 - [ ] 2018
