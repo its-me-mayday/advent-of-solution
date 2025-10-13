@@ -1,3 +1,5 @@
+import { readText } from "../_shared/readFile.js"
+
 const instructions = { '(': 1, ')': -1 };
 
 function step(c){
@@ -16,6 +18,7 @@ function go_to_floor(path, floor) {
 }
 
 const SOURCE_FLOOR = 0;
+
 console.log("===== TEST INPUTS ====")
 console.log(`Santa, is at floor: ${go_to_floor("(())", SOURCE_FLOOR)}`)
 console.log(`Santa, is at floor: ${go_to_floor("(()(()(", SOURCE_FLOOR)}`)
@@ -23,3 +26,8 @@ console.log(`Santa, is at floor: ${go_to_floor("(())", SOURCE_FLOOR)}`)
 console.log(`Santa, is at floor: ${go_to_floor("))(((((", SOURCE_FLOOR)}`)
 console.log(`Santa, is at floor: ${go_to_floor("))(", SOURCE_FLOOR)}`)
 console.log(`Santa, is at floor: ${go_to_floor(")())())", SOURCE_FLOOR)}`)
+
+
+console.log("===== TEST TASK INPUT 1 (input_p1.txt) ====")
+let pathi1 = await readText("input_p1.txt")
+console.log(`Santa, is at floor: ${go_to_floor(pathi1, SOURCE_FLOOR)}`)
