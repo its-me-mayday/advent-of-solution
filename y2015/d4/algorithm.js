@@ -56,7 +56,7 @@ export function getHashAdventCoinPayloadSixZeros(secret) {
     else
         return payload
 
-    console.log(`The hash that starts with at least 5 zeros is: ${hashAdventCoin}`)
+    console.log(`The hash that starts with at least 6 zeros is: ${hashAdventCoin}`)
     console.log(`The entire secret is: ${secret}${payload-1}`)
     return payload-1;
 }
