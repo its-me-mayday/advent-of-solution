@@ -40,3 +40,27 @@ export function getNumberHappyHouses(path) {
 
     return happyHousesCoordinates.size;
 }
+
+export function getNumberHappyHousesWithRoboSanta(path) {
+    let happyHousesCoordinates = new Set();
+    let santaCoordinate = STARTING_POINT;
+    let robotSantaCoordinate = STARTING_POINT
+    const pathLength = path.length;
+    
+    happyHousesCoordinates.add(santaCoordinate);
+    
+    for (let i=0; i<pathLength; i++) {
+        let direction = path[i];
+        let newCoordinate = move(direction);
+        if(i % 2 == 0) {
+            santaCoordinate = sumCoordinates(santaCoordinate, newCoordinate);
+            happyHousesCoordinates.add(santaCoordinate)
+        }
+        else {
+            robotSantaCoordinate = sumCoordinates(robotSantaCoordinate, newCoordinate);
+            happyHousesCoordinates.add(robotSantaCoordinate)
+        }
+    }
+
+    return happyHousesCoordinates.size;
+}
