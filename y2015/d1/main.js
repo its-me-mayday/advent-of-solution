@@ -1,10 +1,7 @@
-function step_to(c, floor){
-    if (c == '(')
-        return floor+1
-    else if (c == ')')
-        return floor-1
-    else
-        return floor
+const instructions = { '(': 1, ')': -1 };
+
+function step(c){
+  return (instructions[c] ?? 0);
 }
 
 function go_to_floor(path, floor) {
@@ -12,7 +9,7 @@ function go_to_floor(path, floor) {
 
     for (let i=0; i<pathLength; i++) {
         let instruction = path[i]
-        floor = step_to(instruction, floor)
+        floor += step(instruction)
     }
 
     return floor
