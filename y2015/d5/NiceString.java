@@ -5,7 +5,7 @@ import java.util.Set;
 public class NiceString { 
     private final int MIN_VOWELS = 3;
     private final String VOWELS = "aeiouAEIOU";
-    private static final Set<String> proibitedStrings = Set.of("ab", "cd", "pq", "xy");
+    private final Set<String> proibitedStrings = Set.of("ab", "cd", "pq", "xy");
 
     private final String str;
 
@@ -13,6 +13,18 @@ public class NiceString {
         this.str = str;
     } 
     
+    public boolean isNicestString() {
+        return hasRepeatedPair(this.str) &&
+            hasRepeatingLetterWithGap(this.str);
+    }
+
+    private boolean hasRepeatedPair(final String str){
+        return true;
+    }
+    private boolean hasRepeatingLetterWithGap(final String str){
+        return true;
+    }
+
     public boolean isNiceString() {
         return checkProibitedStrings(this.str) &&
             checkVowels(this.str) &&
