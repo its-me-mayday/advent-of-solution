@@ -19,18 +19,24 @@ public class NiceString {
     }
 
     private boolean hasRepeatedPair(final String str){
-        return true;
+        final int strLength = str.length();  
+         if (strLength < 4) return false;
+        
+        for(int i=0; i<strLength-2;i++) {
+            String pivot = str.substring(i,i+2);
+            for(int j=(i+2); j<=strLength-2 ; j++) {
+                if(pivot.equals(str.substring(j, j+2))) return true;
+            }
+        }
+        
+        return false;
     }
     private boolean hasRepeatingLetterWithGap(final String str){
         final int strLength = str.length(); 
-        char pivot = str.charAt(0);
+        if (strLength < 3) return false;
         
-        for(int i=0; i<strLength;i++) {
-            if((i+2)>strLength) return false;
-            for(int j=(i+2); j<strLength ; j++) {
-                if(pivot == str.charAt(j)) return true; 
-            }
-            pivot = str.charAt(i);
+        for(int i=0; i<=strLength-3;i++) {
+            if(str.charAt(i) == str.charAt(i+2)) return true; 
         }
         
         return false;
