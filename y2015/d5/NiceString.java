@@ -46,4 +46,9 @@ public class NiceString {
         }
         return false;
     }
+    
+    @Override
+    public String toString() {
+        return this.str;
+    }
 }
