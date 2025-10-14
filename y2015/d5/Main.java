@@ -18,15 +18,12 @@ public class Main {
         "./inputs/part1.txt",
         "./inputs/part2.txt",
     }; 
-    
-    final static String inputPartOnePath = "./inputs/part1.txt";
-    
-    public static void main(String[]args) throws IOException{
-        System.out.println("==== Doesn't He Have Intern-Elves For This? =====");
-         
+     
+    public static void main(String[]args) throws IOException {
         final int inputTestsLen = inputTests.length;
         NiceString niceString = null;
-
+        
+        System.out.println("==== Doesn't He Have Intern-Elves For This? =====");
 
         for(int i=0; i<inputTestsLen; i++) {
             niceString = new NiceString(inputTests[i]);
@@ -34,15 +31,14 @@ public class Main {
         }   
         
         System.out.println("==== PART ONE TEST - Doesn't He Have Intern-Elves For This? =====");
-        final List<String> strings = FileUtils.readLines(Paths.get(officialInputPaths[0]));
-        System.out.println("How many nice strings? " + countNiceStrings(strings));
+        System.out.println("How many nice strings? " + countNiceStrings());
         
         System.out.println("==== PART TWO TEST - Doesn't He Have Intern-Elves For This? =====");
-        final List<String> nicestStrings = FileUtils.readLines(Paths.get(officialInputPaths[1]));
-        System.out.println("How many nice strings? " + countNicestStrings(nicestStrings));
+        System.out.println("How many nice strings? " + countNicestStrings());
     }
     
-    public static final int countNiceStrings(final List<String> strings){
+    public static final int countNiceStrings() throws IOException {
+        final List<String> strings = FileUtils.readLines(Paths.get(officialInputPaths[0]));
         final int listSize = strings.size();
         int countNiceStrings = 0;
         NiceString niceString = null;
@@ -55,7 +51,8 @@ public class Main {
         return countNiceStrings;
     }
     
-    public static final int countNicestStrings(final List<String> strings){
+    public static final int countNicestStrings() throws IOException{
+        final List<String> strings = FileUtils.readLines(Paths.get(officialInputPaths[1]));
         final int listSize = strings.size();
         int countNicestStrings = 0;
         NiceString nicestString = null;
