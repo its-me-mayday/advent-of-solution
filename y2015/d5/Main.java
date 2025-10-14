@@ -34,19 +34,23 @@ public class Main {
         System.out.println("How many nice strings? " + countNiceStrings());
         
         System.out.println("==== PART TWO TEST - Doesn't He Have Intern-Elves For This? =====");
-        System.out.println("How many nice strings? " + countNicestStrings());
+        System.out.println("How many nicest strings? " + countNicestStrings());
     }
-    
+     
     public static final int countNiceStrings() throws IOException {
         final List<String> strings = FileUtils.readLines(Paths.get(officialInputPaths[0]));
         final int listSize = strings.size();
+
         int countNiceStrings = 0;
         NiceString niceString = null;
+        boolean isNice = false;
 
         for(int i=0; i< listSize; i++) {
             final String str = strings.get(i);
             niceString = new NiceString(str);
-            if(niceString.isNiceString()) countNiceStrings++; 
+            isNice = niceString.isNicestString();
+            //System.out.println(i + "| " + niceString + " is Nice? " + isNice);
+            if(isNice) countNiceStrings++; 
         }
         return countNiceStrings;
     }
@@ -54,13 +58,17 @@ public class Main {
     public static final int countNicestStrings() throws IOException{
         final List<String> strings = FileUtils.readLines(Paths.get(officialInputPaths[1]));
         final int listSize = strings.size();
+
         int countNicestStrings = 0;
         NiceString nicestString = null;
+        boolean isNicest = false;
 
         for(int i=0; i< listSize; i++) {
             final String str = strings.get(i);
             nicestString = new NiceString(str);
-            if(nicestString.isNicestString()) countNicestStrings++; 
+            isNicest = nicestString.isNicestString();
+            System.out.println(i + "| " + nicestString + " is Nicest? " + isNicest);
+            if(isNicest) countNicestStrings++;
         }
         return countNicestStrings;
     }

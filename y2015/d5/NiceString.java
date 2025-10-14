@@ -22,7 +22,18 @@ public class NiceString {
         return true;
     }
     private boolean hasRepeatingLetterWithGap(final String str){
-        return true;
+        final int strLength = str.length(); 
+        char pivot = str.charAt(0);
+        
+        for(int i=0; i<strLength;i++) {
+            if((i+2)>strLength) return false;
+            for(int j=(i+2); j<strLength ; j++) {
+                if(pivot == str.charAt(j)) return true; 
+            }
+            pivot = str.charAt(i);
+        }
+        
+        return false;
     }
 
     public boolean isNiceString() {
@@ -37,10 +48,10 @@ public class NiceString {
     }
     
     private boolean checkVowels(final String str) {
-        final int strLenght = str.length();
+        final int strLength = str.length();
         int countVowels = 0;
         
-        for(int i=0; i<strLenght;i++) {
+        for(int i=0; i<strLength;i++) {
             final char ch = str.charAt(i);
             if (VOWELS.indexOf(ch) >= 0 && ++countVowels >= MIN_VOWELS) return true; 
         }
@@ -49,9 +60,9 @@ public class NiceString {
     }
      
     private boolean checkTwiceLetterInARow(final String str) {
-        final int strLenght = str.length();
+        final int strLength = str.length();
         
-        for(int i=1; i<strLenght;i++) {
+        for(int i=1; i<strLength;i++) {
             final char chPreavious = str.charAt(i-1);
             final char chCurrent   = str.charAt(i);
             if(chPreavious == chCurrent) return true; 
