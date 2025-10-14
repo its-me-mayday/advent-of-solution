@@ -32,7 +32,7 @@ public class Main{
         System.out.println("is Nice? " + isNiceString(inputTest4));
         System.out.println("is Nice? " + isNiceString(inputTest5));
         
-        final List<String> strings = readLines(Paths.get(inputPartOnePath));
+        final List<String> strings = FileUtils.readLines(Paths.get(inputPartOnePath));
         System.out.println("How many nice strings? " + countNiceStrings(strings));
     }
     
@@ -79,11 +79,5 @@ public class Main{
             if(chPreavious == chCurrent) return true; 
         }
         return false;
-    }
-    
-    private static List<String> readLines(Path path) throws IOException {
-        try (Stream<String> lines = Files.lines(path, StandardCharsets.UTF_8)) {
-            return lines.collect(Collectors.toList());
-        }
     }
 }
