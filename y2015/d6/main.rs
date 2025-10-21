@@ -1,5 +1,5 @@
 use std::env;
-use std::fs::{File, create_dir_all};
+use std::fs::{File};
 use std::io::{BufRead, BufReader, BufWriter, Write};
 
 fn write_grid_to_file(grid: &[Vec<Coordinate>], path: &str) -> std::io::Result<()> {
@@ -20,7 +20,8 @@ fn write_grid_to_file(grid: &[Vec<Coordinate>], path: &str) -> std::io::Result<(
 struct Coordinate {
     lit: bool,
     x: i16,
-    y: i16
+    y: i16,
+    brightness: u64
 }
 
 fn count_lit(grid: &[Vec<Coordinate>]) -> usize {
@@ -30,8 +31,15 @@ fn count_lit(grid: &[Vec<Coordinate>]) -> usize {
         .count()
 }
 
+fn count_brightness(grid: &[Vec<Coordinate>]) -> u64 {
+    grid.iter()
+        .flatten()
+        .map(|c| c.brightness) 
+        .sum()
+}
+
 fn new_coordinate(x: i16, y: i16) -> Coordinate {
-    Coordinate { lit: false, x, y }
+    Coordinate { lit: false, x, y, brightness: 0 }
 }
 
 fn init_grid() -> Vec<Vec<Coordinate>> {
@@ -79,7 +87,17 @@ fn recognize_cmd(instruction: &str, grid: &mut Vec<Vec<Coordinate>>) {
             for row in grid.iter_mut() {
                 for c in row.iter_mut() {
                     if in_rect(c, c1, c2) {
-                        c.lit = on_or_off == "on";
+                        match on_or_off {
+                            "on"  => {
+                                c.lit = true;
+                                c.brightness = c.brightness.saturating_add(1);
+                            }
+                            "off" => {
+                                c.lit = false;
+                                c.brightness = c.brightness.saturating_sub(1);
+                            }
+                            _ => {}
+                        }
                     }
                 }
             }
@@ -96,6 +114,7 @@ fn recognize_cmd(instruction: &str, grid: &mut Vec<Vec<Coordinate>>) {
                 for c in row.iter_mut() {
                     if in_rect(c, c1, c2) {
                         c.lit = !c.lit;
+                        c.brightness = c.brightness.saturating_add(2);
                     }
                 }
             }
@@ -120,7 +139,6 @@ fn process_instructions<R: BufRead>(reader: R, grid: &mut Vec<Vec<Coordinate>>) 
 fn main() {
     let mut grid = init_grid();
 
-    println!("==== PART ONE, d6: Probably a Fire Hazard ====");
     
     let instruction_1 = "turn on 0,0 through 999,999";
     let instruction_2 = "turn off 499,499 through 500,500";
@@ -136,7 +154,9 @@ fn main() {
     recognize_cmd(instruction_3, &mut grid);
     write_grid_to_file(&grid, "out/grid-preavious-test-1.txt").expect("failed to write grid"); 
     println!("lit_count: {}", count_lit(&grid)); 
+    println!("brightness_count: {}", count_brightness(&grid)); 
     
+    println!("==== PART ONE, d6: Probably a Fire Hazard ====");
     grid = init_grid(); 
     let path = env::args().nth(1).unwrap_or_else(|| "inputs/part1.txt".to_string());
     println!("Reading instructions from: {}", path);
@@ -146,6 +166,18 @@ fn main() {
     println!("==== ;;input;; d6: Probably a Fire Hazard ====");
     write_grid_to_file(&grid, "out/grid-part-1.txt").expect("failed to write grid");
     println!("lit_count: {}", count_lit(&grid)); 
-
     println!("==== END PART ONE: d6: Probably a Fire Hazard ====");
+    
+    println!("==== PART TWO, d6: Probably a Fire Hazard ====");
+    grid = init_grid(); 
+    let path = env::args().nth(1).unwrap_or_else(|| "inputs/part2.txt".to_string());
+    println!("Reading instructions from: {}", path);
+    let file = File::open(&path).expect("cannot open instructions file");
+    let reader = BufReader::new(file);
+    process_instructions(reader, &mut grid).expect("failed processing instructions");
+    println!("==== ;;input;; d6: Probably a Fire Hazard ====");
+    write_grid_to_file(&grid, "out/grid-part-2.txt").expect("failed to write grid");
+    println!("lit_count: {}", count_lit(&grid)); 
+    println!("brightness_count: {}", count_brightness(&grid)); 
+    println!("==== END PART TWO: d6: Probably a Fire Hazard ====");
 }
