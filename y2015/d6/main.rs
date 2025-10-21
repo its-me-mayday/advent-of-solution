@@ -1,5 +1,6 @@
-use std::fs::File;
-use std::io::{BufWriter, Write};
+use std::env;
+use std::fs::{File, create_dir_all};
+use std::io::{BufRead, BufReader, BufWriter, Write};
 
 fn write_grid_to_file(grid: &[Vec<Coordinate>], path: &str) -> std::io::Result<()> {
     let file = File::create(path)?;
@@ -20,6 +21,13 @@ struct Coordinate {
     lit: bool,
     x: i16,
     y: i16
+}
+
+fn count_lit(grid: &[Vec<Coordinate>]) -> usize {
+    grid.iter()
+        .flatten()
+        .filter(|c| c.lit)
+        .count()
 }
 
 fn new_coordinate(x: i16, y: i16) -> Coordinate {
@@ -96,6 +104,19 @@ fn recognize_cmd(instruction: &str, grid: &mut Vec<Vec<Coordinate>>) {
     }
 }
 
+fn process_instructions<R: BufRead>(reader: R, grid: &mut Vec<Vec<Coordinate>>) -> std::io::Result<()> {
+    for (idx, line) in reader.lines().enumerate() {
+        let line = line?;
+        let l = line.trim();
+        if l.is_empty() || l.starts_with('#') {
+            continue;
+        }
+        recognize_cmd(l, grid);
+        println!("[{}] {} -> lights ON = {}", idx + 1, l, count_lit(&grid));
+    }
+    Ok(())
+}
+
 fn main() {
     let mut grid = init_grid();
 
@@ -107,20 +128,24 @@ fn main() {
     
     println!("==== ;;preavious-test(1);; d6: Probably a Fire Hazard, $cmd: '{instruction_1}' ====");
     recognize_cmd(instruction_1, &mut grid);
-    write_grid_to_file(&grid, "out/grid-1.txt").expect("failed to write grid");
-     
+    write_grid_to_file(&grid, "out/grid-intermediate-turn-on.txt").expect("failed to write grid");
     println!("==== ;;preavious-test(2);; d6: Probably a Fire Hazard, $cmd: '{instruction_2}' ====");
     recognize_cmd(instruction_2, &mut grid);
-    write_grid_to_file(&grid, "out/grid-2.txt").expect("failed to write grid");
-     
+    write_grid_to_file(&grid, "out/grid-intermediate-turn-off.txt").expect("failed to write grid");
     println!("==== ;;preavious-test(3);; d6: Probably a Fire Hazard, $cmd: '{instruction_3}' ====");
     recognize_cmd(instruction_3, &mut grid);
-    write_grid_to_file(&grid, "out/grid-3.txt").expect("failed to write grid");
-     
+    write_grid_to_file(&grid, "out/grid-preavious-test-1.txt").expect("failed to write grid"); 
+    println!("lit_count: {}", count_lit(&grid)); 
+    
     grid = init_grid(); 
-
+    let path = env::args().nth(1).unwrap_or_else(|| "inputs/part1.txt".to_string());
+    println!("Reading instructions from: {}", path);
+    let file = File::open(&path).expect("cannot open instructions file");
+    let reader = BufReader::new(file);
+    process_instructions(reader, &mut grid).expect("failed processing instructions");
     println!("==== ;;input;; d6: Probably a Fire Hazard ====");
     write_grid_to_file(&grid, "out/grid-part-1.txt").expect("failed to write grid");
+    println!("lit_count: {}", count_lit(&grid)); 
 
     println!("==== END PART ONE: d6: Probably a Fire Hazard ====");
 }
