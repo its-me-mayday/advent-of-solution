@@ -19,9 +19,9 @@ Personal (`its-me-mayday`) solutions to advent-of-code challenge.
   - [x] day5
     - [x] part1 (java vanilla)
     - [x] part2 (java vanilla)
-  - [ ] day6
-    - [ ] part1 (rust)
-    - [ ] part2 (rust)
+  - [x] day6
+    - [x] part1 (rust)
+    - [x] part2 (rust)
   - [ ] day7
     - [ ] part1 (<choose_language>)
     - [ ] part2 (<choose_language>)
