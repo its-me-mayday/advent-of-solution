@@ -4,35 +4,34 @@ vector_test_one = [
     "2-9 c: ccccccccc",
 ]
 
-complain_passwords = 0
+valid_passwords_count = 0
 
-def define_ranges(ranges):
+def parse_ranges(ranges):
     splitted_ranges = ranges.split("-")
     return splitted_ranges[0], splitted_ranges[1]
     
-def define_policy(policy):
+def parse_policy(policy):
     splitted_policy = policy.split(" ")
-    low, high = define_ranges(splitted_policy[0])
+    low, high = parse_ranges(splitted_policy[0])
     char = splitted_policy[1]
     return int(low), int(high), char
 
-def complain(low, high, counter):
+def is_password_valid(low, high, counter):
     return counter >= low and counter <= high
 
-counter = 0
-
-for vector in vector_test_one:
-    cmds = vector.split(":")
+for entry in vector_test_one:
+    counter = 0
+    cmds = entry.split(":")
     policy = cmds[0]
-    password = cmds[1]
+    password = cmds[1].strip()
 
-    low, high, char = define_policy(policy)
+    low, high, char = parse_policy(policy)
 
     for c in password:
-        if c is char:
+        if c == char:
             counter+=1
     
-    if(complain(low, high, counter)):
-        complain_passwords += 1
+    if(is_password_valid(low, high, counter)):
+        valid_passwords_count += 1
 
-print(complain_passwords)
+print(valid_passwords_count)
