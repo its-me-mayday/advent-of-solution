@@ -16,22 +16,21 @@ def parse_policy(policy):
     char = splitted_policy[1]
     return int(low), int(high), char
 
-def is_password_valid(low, high, counter):
-    return counter >= low and counter <= high
-
-for entry in vector_test_one:
-    counter = 0
+def parse_line(entry):
     cmds = entry.split(":")
     policy = cmds[0]
     password = cmds[1].strip()
-
     low, high, char = parse_policy(policy)
+    return low, high, char, password
 
-    for c in password:
-        if c == char:
-            counter+=1
+def is_password_valid(low, high, counter):
+    return counter >= low and counter <= high
+
+for entry in vector_test_one: 
+    low, high, char, password = parse_line(entry)
+    count = password.count(char)
     
-    if(is_password_valid(low, high, counter)):
+    if(is_password_valid(low, high, count)):
         valid_passwords_count += 1
 
 print(valid_passwords_count)
