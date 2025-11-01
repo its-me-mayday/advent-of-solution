@@ -1,4 +1,4 @@
-vector_test_one = [
+lines = [
     "1-3 a: abcde",
     "1-3 b: cdefg",
     "2-9 c: ccccccccc",
@@ -6,31 +6,22 @@ vector_test_one = [
 
 valid_passwords_count = 0
 
-def parse_ranges(ranges):
-    splitted_ranges = ranges.split("-")
-    return splitted_ranges[0], splitted_ranges[1]
-    
-def parse_policy(policy):
-    splitted_policy = policy.split(" ")
-    low, high = parse_ranges(splitted_policy[0])
-    char = splitted_policy[1]
-    return int(low), int(high), char
+def parse_line(line):
+    policy_part, password_part = line.split(":")
+    rng, ch = policy_part.strip().split(" ")
+    low, high = map(int, rng.split("-"))
+    return {
+        "low": low,
+        "high": high,
+        "char": ch,
+        "password": password_part.strip(),
+    }
 
-def parse_line(entry):
-    cmds = entry.split(":")
-    policy = cmds[0]
-    password = cmds[1].strip()
-    low, high, char = parse_policy(policy)
-    return low, high, char, password
+def is_valid(entry):
+    count = entry["password"].count(entry["char"])
+    return entry["low"] <= count <= entry["high"]
 
-def is_password_valid(low, high, counter):
-    return counter >= low and counter <= high
+entries = map(parse_line, lines)
+valid_count = sum(1 for e in entries if is_valid(e))
 
-for entry in vector_test_one: 
-    low, high, char, password = parse_line(entry)
-    count = password.count(char)
-    
-    if(is_password_valid(low, high, count)):
-        valid_passwords_count += 1
-
-print(valid_passwords_count)
+print(valid_count)
