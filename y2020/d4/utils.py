@@ -1,10 +1,7 @@
 from passport import Passport
 
 def scan(datas): 
-    print("DATAS",datas)
-    p = make_passport(datas)
-    print("DEBUG:", p)
-    return p
+    return make_passport(datas)
     
 def make_passport(pairs: list[str]) -> Passport:
     d = dict(s.split(":", 1) for s in pairs)
