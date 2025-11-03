@@ -4,6 +4,9 @@ Personal (`its-me-mayday`) solutions to advent-of-code challenge.
 
 ## Years
 - [ ] 2015
+
+  <details>
+
   - [x] day1
     - [x] part1 (js)
     - [x] part2 (js)
@@ -79,18 +82,33 @@ Personal (`its-me-mayday`) solutions to advent-of-code challenge.
   - [ ] day25
     - [ ] part1 (<choose_language>)
     - [ ] part2 (<choose_language>)
+
+    </details>
+    
 - [ ] 2016
 - [ ] 2017
 - [ ] 2018
 - [ ] 2019
 - [ ] 2020
+
+  <details>
+  
   - [x] day1
     - [x] part1 (ruby)
     - [x] part2 (ruby)
+  - [x] day2
+    - [x] part1 (python)
+    - [x] part2 (python)
+  
+  </details>
+
 - [ ] 2021
 - [ ] 2022
 - [ ] 2023
 - [ ] 2024
+
+  <details>
+  
   - [x] day1
     - [x] part1 (python)
     - [x] part2 (python)
@@ -166,6 +184,8 @@ Personal (`its-me-mayday`) solutions to advent-of-code challenge.
   - [ ] day25
     - [ ] part1 (<choose_language>)
     - [ ] part2 (<choose_language>)
+    
+    </details>
 
 ## Author
 - Luca Maggio (`its-me-mayday`); lucamaggio1992@gmail.com.
