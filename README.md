@@ -83,7 +83,7 @@ Personal (`its-me-mayday`) solutions to advent-of-code challenge.
     - [ ] part1 (<choose_language>)
     - [ ] part2 (<choose_language>)
 
-    </details>
+  </details>
     
 - [ ] 2016
 - [ ] 2017
