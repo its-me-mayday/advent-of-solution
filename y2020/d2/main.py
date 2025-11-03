@@ -25,3 +25,20 @@ entries = map(parse_line, lines)
 valid_count = sum(1 for e in entries if is_valid(e))
 
 print(valid_count)
+
+valid_count = 0
+lines = []
+
+input_part_one = "./inputs/part1.txt"
+input_part_two = "./inputs/part2.txt"
+
+lines = []
+with open(input_part_one, 'r') as file:
+    for line in file:
+        processed_line = line.strip()
+        lines.append(processed_line)
+
+entries = map(parse_line, lines)
+valid_count = sum(1 for e in entries if is_valid(e))
+
+print(valid_count)
