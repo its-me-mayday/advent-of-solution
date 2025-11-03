@@ -1,10 +1,13 @@
 from dataclasses import dataclass
+import re
 
 @dataclass(slots=True)
 class Passport:
     byr: str|None=None; iyr: str|None=None; eyr: str|None=None
     hgt: str|None=None; hcl: str|None=None; ecl: str|None=None
     pid: str|None=None; cid: str|None=None
+    
+    colors = ["amb", "blu", "brn", "gry", "grn", "hzl", "oth"]
       
     def has_required_fields(self) -> bool:
         return all([
@@ -52,13 +55,42 @@ class Passport:
             self._get_range_by_unit(unit, value)
         ]) 
     
+    def is_valid_hcl(self) -> bool:
+        if(self.hcl is None): return False 
+        pat = re.compile(r'^#[a-z0-9]{6}$') 
+         
+        return bool(pat.match(self.hcl)) 
+    
+    def is_valid_ecl(self) -> bool:
+        if(self.ecl is None): return False
+        
+        return self.ecl in self.colors
+    
+    def is_valid_pid(self) -> bool:
+        if(self.pid is None): return False 
+        pat = re.compile(r'^[0-9]{9}$') 
+         
+        return bool(pat.match(self.pid)) 
+    
+    def is_valid(self) -> bool:
+        return all([
+            self.has_required_fields(),
+            self.is_valid_byr(),
+            self.is_valid_iyr(),
+            self.is_valid_eyr(),
+            self.is_valid_hgt(),
+            self.is_valid_hcl(),
+            self.is_valid_ecl(),
+            self.is_valid_pid(),
+            ])
+    
     def _get_range_by_unit(self, unit, value) -> bool:
         if(unit=="cm"):
             return 150 <= value <= 193
         if(unit=="in"):
             return 59 <= value <= 76
         return False
-
+        
     
     def _split_hgt(self):
         i = 0
@@ -73,12 +105,3 @@ class Passport:
         value = int(self.hgt[:i])
         unit = self.hgt[i:].lower()
         return value, unit
-    
-    def is_valid(self) -> bool:
-        return all([
-            self.has_required_fields(),
-            self.is_valid_byr(),
-            self.is_valid_iyr(),
-            self.is_valid_eyr(),
-            self.is_valid_hgt(),
-            ])
