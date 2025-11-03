@@ -2,14 +2,9 @@ from dataclasses import dataclass
 
 @dataclass(slots=True)
 class Passport:
-    byr: str   
-    iyr: str 
-    eyr: str 
-    hgt: str 
-    hcl: str 
-    ecl: str 
-    pid: str 
-    cid:str | None = None
+    byr: str|None=None; iyr: str|None=None; eyr: str|None=None
+    hgt: str|None=None; hcl: str|None=None; ecl: str|None=None
+    pid: str|None=None; cid: str|None=None
       
     def has_required_fields(self) -> bool:
         return all([
