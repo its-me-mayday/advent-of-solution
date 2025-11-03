@@ -36,8 +36,8 @@ function go_to_floor(path) {
     return {floor: floor, first_basement_position: first_basement_position}
 }
 
-let pathi1 = await readText("input_p1.txt");
-let pathi2 = await readText("input_p2.txt");
+let pathi1 = await readText("./inputs/input_p1.txt");
+let pathi2 = await readText("./inputs/input_p2.txt");
 
 console.log("===== PART ONE - TEST INPUTS ====");
 console.log(`Santa, is at floor: ${go_to_floor("(())").floor}`);
