@@ -10,22 +10,24 @@ count = 0
 
 print("== PART_ONE: tests ==")
 content = read(input_test_one)
-count = count_increases(content) 
+count = count_increases(content, 1) 
 print(count)
 print("== PART_ONE: end tests ==")
 
 print("== PART_ONE: input ==")
 content = read(input_part_one)
-count = count_increases(content) 
+count = count_increases(content, 1) 
 print(count)
 print("== PART_ONE: end input ==")
 
 print("== PART_TWO: tests ==")
 content = read(input_test_two)
+count = count_increases(content, 3) 
 print(count)
 print("== PART_TWO: end tests ==")
 
 print("== PART_TWO: input ==")
 content = read(input_part_two)
+count = count_increases(content, 3) 
 print(count)
 print("== PART_TWO: end input ==")

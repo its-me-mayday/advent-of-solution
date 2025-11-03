@@ -1,2 +1,2 @@
-def count_increases(content):
-    return sum(b > a for a, b in zip(content, content[1:]))
+def count_increases(content, window):
+    return sum(b > a for a, b in zip(content, content[window:]))
