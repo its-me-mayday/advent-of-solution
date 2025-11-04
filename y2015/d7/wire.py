@@ -1,9 +1,8 @@
 class Wire:
-    def __init__(self, id: str, source: str, signal: int = None) -> Wire:
+    def __init__(self, id: str, source: str, signal: int = None):
         self.id = id
         self.source = source
         self.signal = signal
-        self.dest = dest
     
     def get_id(self) -> str:
         return self.id 
@@ -18,11 +17,7 @@ class Wire:
         return self.source 
     
     def __str__(self) -> str:
-        return 
-        "Wire ", 
-        self.get_id(),
-        "src(", 
-        self.get_source(),
-        ") -> signal (", 
-        self.get_signal(),
-        ")" 
+        return f"Wire {self.get_id()} src({self.get_source()}) -> signal ({self.get_signal()})"
+
+    def __repr__(self) -> str:
+        return f"Wire(id={self.id!r}, source={self.source!r}, signal={self.signal!r})" 
