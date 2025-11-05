@@ -11,7 +11,7 @@ class Wire:
         self.signal = signal
     
     def get_signal(self) -> int:
-        return signal
+        return self.signal
 
     def get_source(self) -> str:
         return self.source 

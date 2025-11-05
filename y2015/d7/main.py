@@ -6,29 +6,37 @@ input_test_two = "./inputs/test2.txt"
 from file_service import read 
 from utils import init_circuit
 
-x = 123
-y = 456
-d = x&y
-e = x|y
-f = x<<2
-g = y>>2
-h = abs(~x+1)
-i = abs(~y+1)
+from logger import get_logger
+import logging
+from logging.handlers import RotatingFileHandler
 
-print("== PART_ONE: tests ==")
-booklet = read(input_test_one)
-circuit = init_circuit(booklet)
-print(circuit.get_wires())
-print("== PART_ONE: end tests ==")
+log = get_logger(__name__)
+
+file_handler = RotatingFileHandler("app.log", maxBytes=5_000_000, backupCount=5)
+file_handler.setFormatter(logging.Formatter("%(asctime)s %(levelname)s %(name)s: %(message)s"))
+
+root = logging.getLogger()
+root.addHandler(file_handler) 
+
+#print("== PART_ONE: tests ==")
+#booklet = read(input_test_one)
+#circuit = init_circuit(booklet, log)
+#print(circuit.get_wires())
+#print("== PART_ONE: end tests ==")
 
 print("== PART_ONE: input ==")
-content = read(input_part_one)
+booklet = read(input_part_one)
+print("booklet:", booklet)
+circuit = init_circuit(booklet, log)
+print(circuit.get_wires())
+for wires in circuit.get_wires():
+    print(wires.get_id(), ":", wires.get_signal())
 print("== PART_ONE: end input ==")
 
-print("== PART_TWO: tests ==")
-content = read(input_test_two)
-print("== PART_TWO: end tests ==")
+#print("== PART_TWO: tests ==")
+#content = read(input_test_two)
+#print("== PART_TWO: end tests ==")
 
-print("== PART_TWO: input ==")
-content = read(input_part_two)
-print("== PART_TWO: end input ==")
+#print("== PART_TWO: input ==")
+#content = read(input_part_two)
+#print("== PART_TWO: end input ==")
